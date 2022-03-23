@@ -1,1 +1,33 @@
-<h1>マイページ</h1>
+<main>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+       <%= render 'users/user_info', user: @user %>
+       <div class="col-md-8 offset-md-1">
+        <h2>Users</h2>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+         <% @books.each do |book| %>
+          <tbody>
+            <tr>
+              <% if book.user.profile_image.attached? %>
+              <td><%= image_tag book.user.profile_image, size: "50x50" %></td>
+              <% else %>
+              <td><%= image_tag 'no-icon', size: "40x40"%></td>
+              <% end %>
+              <td><%=link_to book.title, book_path(book.id) %></td>
+              <td><%=book.body %></td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
