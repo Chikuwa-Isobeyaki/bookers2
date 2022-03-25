@@ -8,4 +8,5 @@ class User < ApplicationRecord
   
   has_one_attached :profile_image
   
+  validates :name, length: {minimum: 2} 
 end
