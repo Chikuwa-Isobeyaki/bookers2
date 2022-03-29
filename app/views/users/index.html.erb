@@ -4,7 +4,7 @@
       <%= render 'users/user_info', user: @user %>
        <div class="col-md-8 offset-md-1">
         <h2>Users</h2>
-        <table class="table table-hover table-inverse">
+        <table class="table">
           <thead>
             <tr>
               <th>image</th>
@@ -16,9 +16,9 @@
           <tbody>
             <tr>
               <% if user.profile_image.attached? %>
-              <td><%= image_tag user.profile_image, size: "50x50" %></td>
+              <td><%= image_tag user.profile_image,class: "attachment user profile_image fallback", size: "50x50" %></td>
               <% else %>
-              <td><%= image_tag 'no-icon', size: "40x40"  %></td>
+              <td><%= image_tag 'no-image-icon',class: "attachment user profile_image fallback", size: "40x40"  %></td>
               <% end %>
               <td><%=user.name %></td>
               <td><%=link_to 'Show', user_path(user.id) %></td>

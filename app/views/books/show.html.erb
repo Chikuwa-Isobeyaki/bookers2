@@ -10,12 +10,12 @@
               <td>
                 <% if @book.user.profile_image.attached? %>
                   <%= link_to user_path(@book.user_id) do %>
-                    <%= image_tag @book.user.profile_image, size: "100x100" %><br>
+                    <%= image_tag @book.user.profile_image,class: "attachment user profile_image fallback", size: "100x100" %><br>
                     <%= @book.user.name %>
                   <% end %>
                 <% else %>
                   <%= link_to user_path(@book.user_id) do %>
-                    <%= image_tag 'no-icon', size: "40x40" %><br>
+                    <%= image_tag 'no-image-icon', class: "attachment user profile_image fallback", size: "40x40" %><br>
                     <%= @book.user.name %>
                   <% end %>
                 <% end %>
